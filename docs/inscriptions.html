@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Balagan - Formulaire d'inscription</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/balagan.css" rel="stylesheet">
+</head>
+
+<body>
+
+<!-- </body> class="bg-light"> -->
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h4 class="card-title mb-4 text-center">Formulaire d'inscription</h4>
+
+                    <form method="POST" autocomplete="on" action="confimation.html">
+
+                        <!-- Nom / Prénom -->
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Nom</label>
+                                <input type="text" class="form-control" id="lastname" name="lastname" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Prénom</label>
+                                <input type="text" class="form-control" id="firstname" name="firstname" required>
+                            </div>
+                        </div>
+
+                        <!-- Téléphone / Email -->
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Téléphone</label>
+                                <input type="tel" class="form-control" id="phone" name="phone" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Email</label>
+                                <input type="email" class="form-control" id="email" name="email" required>
+                            </div>
+                        </div>
+
+                        <!-- Adresse -->
+                        <div class="mb-3">
+                            <label class="form-label">Adresse</label>
+                            <textarea class="form-control" rows="3" id="address" name="address"></textarea>
+                        </div>
+
+                        <!-- Instrument / Niveau -->
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label id=instr class="form-label" id="instr">Instrument</label>
+                                <input type="text" class="form-control" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Niveau</label>
+                                <select class="form-select" id="niveau" required>
+                                    <option value="">-- Choisir --</option>
+                                    <option>Débutant</option>
+                                    <option>Intermédiaire</option>
+                                    <option>Avancé</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Menu 1 -->
+                        <div class="mb-3">
+                            <label for="menu1" class="form-label">Type de stage</label>
+                            <select id="menu1" class="form-select" onchange="gInscr.typeSelect(this.value)">
+                            </select>
+                        </div>
+
+                        <!-- Menu 2 -->
+                        <div class="mb-3">
+                            <label for="menu2" class="form-label">Stage</label>
+                            <select id="menu2" class="form-select"  onchange="gInscr.stageSelect(this.value)" required>
+                                <option value="">-- Choisir --</option>
+                            </select>
+                        </div>
+                        <h6 id="titre"></h6>
+
+                        <!-- Section Radio -->
+                            <div id="prix" class="card bg-light mt-3">
+                                <div class="form-check">
+                                    <input id=full class="form-check-input" type="radio" name="prixchoix" value="F" checked = true onclick="gInscr.tarif(this.value)">
+                                    <label id=fulllabel class="form-check-label"></label>
+                                </div>
+
+                                <div class="form-check">
+                                    <input id=reduit class="form-check-input" type="radio" name="prixchoix" value="R" onclick="gInscr.tarif(this.value)">
+                                    <label id=reduitlabel class="form-check-label"></label>
+                                </div>
+                            </div>
+                            <div id="options" class="card bg-light mt-3 d-none">
+                                <div class="form-check">
+                                    <input id=opta class="form-check-input" type="radio" name="optionchoix" value="A" onclick="gInscr.option(this.value)">
+                                    <label id=optalabel class="form-check-label"></label>
+                                </div>
+
+                                <div class="form-check">
+                                    <input id=optb class="form-check-input" type="radio" name="optionchoix" value="B" onclick="gInscr.option(this.value)">
+                                    <label id=optblabel class="form-check-label"></label>
+                                </div>
+                            </div>
+                            <br/>
+                            <h6 id="total" class="form-label d-none" style="text-align: right;"></h6>
+
+                        <!-- Régime alimentaire -->
+                        <div class="mt-4 mb-3">
+                            <label class="form-label">
+                                Régime alimentaire & souhaits particuliers
+                            </label>
+                            <textarea class="form-control" rows="3" id="rem"
+                                placeholder="Allergies, végétarien, intolérances, remarques..."></textarea>
+                        </div>
+
+                        <!-- Bouton -->
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary px-4" onclick="gInscr.submit()">
+                                Envoyer
+                            </button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/stages.js"></script>
+
+</body>
+</html>
