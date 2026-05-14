@@ -1,4 +1,17 @@
 
 body {
-    background: linear-gradient(#24778c, #2f844d);
+    background: linear-gradient(#24778c, #2b7244);
+    text-align:center;
+    height: 100%;
+}
+
+.footer {
+    background-color: rgb(77, 74, 74);
+    margin:auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.footer img {
+    padding: 3px;
 }
