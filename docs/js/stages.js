@@ -309,10 +309,19 @@ const gData =  {
         }
         this.makeTypeMenu ( gData, type );
         this.typeSelect(type, stage);
+        const form = document.getElementById('form');
+            form.addEventListener('submit', function(event) {
+            // empêche le submit HTML automatique
+            event.preventDefault();
+            console.log('submit intercepté');
+            gInscr.requestSubmit();
+            // puis submit manuel si nécessaire
+            form.submit();
+        });
     }
 
     //-----------------------------------------------------
-    submit() {
+    requestSubmit() {
         let niv = document.getElementById('niveau');
         let data = {
             nom: document.getElementById('lastname').value,
@@ -327,7 +336,7 @@ const gData =  {
             niveau: niv.options[niv.selectedIndex].text,
         }
         localStorage.setItem ('reg', JSON.stringify(data));
-console.log ("submit", JSON.stringify(data), this.fState.stage)
+console.log ("requestSubmit", JSON.stringify(data), this.fState.stage)
     }
 
     //-----------------------------------------------------
@@ -494,7 +503,6 @@ console.log ("submit", JSON.stringify(data), this.fState.stage)
         if (disable) opt.disabled = true;
         menu.appendChild(opt);
     }
-
 };
 
 //-----------------------------------------------------
